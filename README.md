@@ -7,3 +7,9 @@
 - 创建项目
 - 暂时使用protobuf代替报文的字符流
 - 定义TCP UDP报文结构
+### 2018年2月6日23:01:41
+- 三次握手，代码结构调整
+- Tcpdump抓了一下包，确定写的代码没有严重逻辑问题
+- TODO 最简单的形式，使用两个多线程
+- TODO CMake and 编译
+- Coding at home so cold

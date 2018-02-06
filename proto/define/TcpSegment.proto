@@ -1,0 +1,22 @@
+syntax = "proto2";
+package  TcpSegment;
+
+message TcpSegmentHeader{
+    required uint32 source_port = 1; //源端口  
+    required uint32 dest_port   = 2; //目的端口
+    required uint32 seq_num     = 3; //4字节序号seq
+    required uint32 ack_num     = 4; //4字节确认号ack
+    required uint32 ssets       = 5; //4bit Offset + 6bit 保留 +
+    required uint32 window_size = 6; //2字节窗口大小
+    required uint32 check_sum   = 7; //2字节校验和
+    required uint32 URG_pointer = 8; //2字节紧急指针
+    optional string Options     = 9; //最多40字节的可选选项
+}
+
+
+message TcpSegment{
+    required TcpSegmentHeader TcpHeader = 1;
+    required string           TcpData   = 2; 
+}
+
+

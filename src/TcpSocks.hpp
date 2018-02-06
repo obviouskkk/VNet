@@ -10,6 +10,10 @@
 #include <cstdint>
 #include <string>
 
+#include "./proto/TcpSegment.pb.h"
+
+class Net;
+
 class TcpSock;
 
 enum TcpStatus{
@@ -28,12 +32,30 @@ enum TcpStatus{
 class TcpSock
 {
 public:
-    TcpSock();
-    int Send(TcpSock* conn, const std::string & data);
+    TcpSock(const char* ip, uint16_t port)
+        :mip_(ip), mport_(port){}
+    int Send(const std::string & data);
     int Recv(const std::string data);
-    int Connect(const char* ip, const uint16_t port);
+    int Listen();
+    int Connect();
     int Accept();
+public:
+    Net* ipnet() const;
+    uint16_t port() const;
+    std::string ip() const;
+    int tcp_states() ;
 private:
-    
+    int first_handshake();    //client 
+    int second_handshake();   //server
+    int third_handshake();    //client
+    int send_data();
+    int send_ack();
+private:
+    enum TcpStatus tcp_states_;
+    std::string  mip_;
+    std::string remote_ip_;
+    uint16_t mport_;
+    uint16_t remote_port_;
+    Net* ipnet_;
 };
 

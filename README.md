@@ -1,2 +1,9 @@
-# net_simulation
-net 
+# VNet
+## 在软件层面尽可能的模拟tcp/ip网络行为
+- 在函数调用层，为调用者提供类似connet,send等行为的接口
+- 分层实现，模拟tcp/ip的分层
+
+### 2018年2月6日14:25:56
+- 创建项目
+- 暂时使用protobuf代替报文的字符流
+- 定义TCP UDP报文结构

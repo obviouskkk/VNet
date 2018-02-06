@@ -9,16 +9,17 @@
 #ifndef __UDP_SEGMENT_HPP__
 #define __UDP_SEGMENT_HPP__ 
 
+#include <cstdint>
 class UdpSegment
 {
 public:
 
 private:
     //udp header 8 char
-    short int source_port_; //源端口
-    short int dest_port_;   //目的端口
-    short int length_;      //长度,包含header和data
-    short int checksum_;    //校验和,首部和数据都要校验
+    int16_t source_port_; //源端口
+    int16_t dest_port_;   //目的端口
+    int16_t length_;      //长度,包含header和data
+    int16_t checksum_;    //校验和,首部和数据都要校验
 };
 
 

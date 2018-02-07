@@ -116,17 +116,18 @@ void protobuf_AddDesc_TcpSegment_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020TcpSegment.proto\022\nTcpSegment\"\263\002\n\020TcpSe"
+    "\n\020TcpSegment.proto\022\nTcpSegment\"\350\002\n\020TcpSe"
     "gmentHeader\022\023\n\013source_port\030\001 \002(\r\022\021\n\tdest"
     "_port\030\002 \002(\r\022\017\n\007seq_num\030\003 \002(\r\022\017\n\007ack_num\030"
-    "\004 \002(\r\022\016\n\006offset\030\005 \002(\r\022\021\n\tkeep_bits\030\006 \002(\r"
-    "\022\017\n\007URG_bit\030\007 \002(\010\022\017\n\007ACK_bit\030\010 \002(\010\022\017\n\007PS"
-    "H_bit\030\t \002(\010\022\017\n\007RST_bit\030\n \002(\010\022\017\n\007SYN_bit\030"
-    "\013 \002(\010\022\017\n\007FIN_bit\030\014 \002(\010\022\023\n\013window_size\030\r "
-    "\002(\r\022\021\n\tcheck_sum\030\016 \002(\r\022\023\n\013URG_pointer\030\017 "
-    "\002(\r\022\017\n\007Options\030\020 \001(\t\"N\n\nTcpSegment\022/\n\tTc"
-    "pHeader\030\001 \002(\0132\034.TcpSegment.TcpSegmentHea"
-    "der\022\017\n\007TcpData\030\002 \002(\t", 420);
+    "\004 \002(\r\022\016\n\006offset\030\005 \002(\r\022\024\n\tkeep_bits\030\006 \002(\r"
+    ":\0010\022\026\n\007URG_bit\030\007 \002(\010:\005false\022\026\n\007ACK_bit\030\010"
+    " \002(\010:\005false\022\026\n\007PSH_bit\030\t \002(\010:\005false\022\026\n\007R"
+    "ST_bit\030\n \002(\010:\005false\022\026\n\007SYN_bit\030\013 \002(\010:\005fa"
+    "lse\022\026\n\007FIN_bit\030\014 \002(\010:\005false\022\023\n\013window_si"
+    "ze\030\r \002(\r\022\024\n\tcheck_sum\030\016 \002(\r:\0010\022\026\n\013URG_po"
+    "inter\030\017 \002(\r:\0010\022\021\n\007Options\030\020 \001(\t:\000\"N\n\nTcp"
+    "Segment\022/\n\tTcpHeader\030\001 \002(\0132\034.TcpSegment."
+    "TcpSegmentHeader\022\017\n\007TcpData\030\002 \002(\t", 473);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "TcpSegment.proto", &protobuf_RegisterTypes);
   TcpSegmentHeader::default_instance_ = new TcpSegmentHeader();
@@ -351,7 +352,7 @@ bool TcpSegmentHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 keep_bits = 6;
+      // required uint32 keep_bits = 6 [default = 0];
       case 6: {
         if (tag == 48) {
          parse_keep_bits:
@@ -366,7 +367,7 @@ bool TcpSegmentHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool URG_bit = 7;
+      // required bool URG_bit = 7 [default = false];
       case 7: {
         if (tag == 56) {
          parse_URG_bit:
@@ -381,7 +382,7 @@ bool TcpSegmentHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool ACK_bit = 8;
+      // required bool ACK_bit = 8 [default = false];
       case 8: {
         if (tag == 64) {
          parse_ACK_bit:
@@ -396,7 +397,7 @@ bool TcpSegmentHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool PSH_bit = 9;
+      // required bool PSH_bit = 9 [default = false];
       case 9: {
         if (tag == 72) {
          parse_PSH_bit:
@@ -411,7 +412,7 @@ bool TcpSegmentHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool RST_bit = 10;
+      // required bool RST_bit = 10 [default = false];
       case 10: {
         if (tag == 80) {
          parse_RST_bit:
@@ -426,7 +427,7 @@ bool TcpSegmentHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool SYN_bit = 11;
+      // required bool SYN_bit = 11 [default = false];
       case 11: {
         if (tag == 88) {
          parse_SYN_bit:
@@ -441,7 +442,7 @@ bool TcpSegmentHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool FIN_bit = 12;
+      // required bool FIN_bit = 12 [default = false];
       case 12: {
         if (tag == 96) {
          parse_FIN_bit:
@@ -471,7 +472,7 @@ bool TcpSegmentHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 check_sum = 14;
+      // required uint32 check_sum = 14 [default = 0];
       case 14: {
         if (tag == 112) {
          parse_check_sum:
@@ -486,7 +487,7 @@ bool TcpSegmentHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 URG_pointer = 15;
+      // required uint32 URG_pointer = 15 [default = 0];
       case 15: {
         if (tag == 120) {
          parse_URG_pointer:
@@ -501,7 +502,7 @@ bool TcpSegmentHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // optional string Options = 16;
+      // optional string Options = 16 [default = ""];
       case 16: {
         if (tag == 130) {
          parse_Options:
@@ -568,37 +569,37 @@ void TcpSegmentHeader::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->offset(), output);
   }
 
-  // required uint32 keep_bits = 6;
+  // required uint32 keep_bits = 6 [default = 0];
   if (has_keep_bits()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->keep_bits(), output);
   }
 
-  // required bool URG_bit = 7;
+  // required bool URG_bit = 7 [default = false];
   if (has_urg_bit()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->urg_bit(), output);
   }
 
-  // required bool ACK_bit = 8;
+  // required bool ACK_bit = 8 [default = false];
   if (has_ack_bit()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->ack_bit(), output);
   }
 
-  // required bool PSH_bit = 9;
+  // required bool PSH_bit = 9 [default = false];
   if (has_psh_bit()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->psh_bit(), output);
   }
 
-  // required bool RST_bit = 10;
+  // required bool RST_bit = 10 [default = false];
   if (has_rst_bit()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(10, this->rst_bit(), output);
   }
 
-  // required bool SYN_bit = 11;
+  // required bool SYN_bit = 11 [default = false];
   if (has_syn_bit()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->syn_bit(), output);
   }
 
-  // required bool FIN_bit = 12;
+  // required bool FIN_bit = 12 [default = false];
   if (has_fin_bit()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(12, this->fin_bit(), output);
   }
@@ -608,17 +609,17 @@ void TcpSegmentHeader::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->window_size(), output);
   }
 
-  // required uint32 check_sum = 14;
+  // required uint32 check_sum = 14 [default = 0];
   if (has_check_sum()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(14, this->check_sum(), output);
   }
 
-  // required uint32 URG_pointer = 15;
+  // required uint32 URG_pointer = 15 [default = 0];
   if (has_urg_pointer()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(15, this->urg_pointer(), output);
   }
 
-  // optional string Options = 16;
+  // optional string Options = 16 [default = ""];
   if (has_options()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->options().data(), this->options().length(),
@@ -663,37 +664,37 @@ void TcpSegmentHeader::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->offset(), target);
   }
 
-  // required uint32 keep_bits = 6;
+  // required uint32 keep_bits = 6 [default = 0];
   if (has_keep_bits()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->keep_bits(), target);
   }
 
-  // required bool URG_bit = 7;
+  // required bool URG_bit = 7 [default = false];
   if (has_urg_bit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->urg_bit(), target);
   }
 
-  // required bool ACK_bit = 8;
+  // required bool ACK_bit = 8 [default = false];
   if (has_ack_bit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->ack_bit(), target);
   }
 
-  // required bool PSH_bit = 9;
+  // required bool PSH_bit = 9 [default = false];
   if (has_psh_bit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->psh_bit(), target);
   }
 
-  // required bool RST_bit = 10;
+  // required bool RST_bit = 10 [default = false];
   if (has_rst_bit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(10, this->rst_bit(), target);
   }
 
-  // required bool SYN_bit = 11;
+  // required bool SYN_bit = 11 [default = false];
   if (has_syn_bit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(11, this->syn_bit(), target);
   }
 
-  // required bool FIN_bit = 12;
+  // required bool FIN_bit = 12 [default = false];
   if (has_fin_bit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(12, this->fin_bit(), target);
   }
@@ -703,17 +704,17 @@ void TcpSegmentHeader::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->window_size(), target);
   }
 
-  // required uint32 check_sum = 14;
+  // required uint32 check_sum = 14 [default = 0];
   if (has_check_sum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(14, this->check_sum(), target);
   }
 
-  // required uint32 URG_pointer = 15;
+  // required uint32 URG_pointer = 15 [default = 0];
   if (has_urg_pointer()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(15, this->urg_pointer(), target);
   }
 
-  // optional string Options = 16;
+  // optional string Options = 16 [default = ""];
   if (has_options()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->options().data(), this->options().length(),
@@ -771,41 +772,41 @@ int TcpSegmentHeader::ByteSize() const {
           this->offset());
     }
 
-    // required uint32 keep_bits = 6;
+    // required uint32 keep_bits = 6 [default = 0];
     if (has_keep_bits()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->keep_bits());
     }
 
-    // required bool URG_bit = 7;
+    // required bool URG_bit = 7 [default = false];
     if (has_urg_bit()) {
       total_size += 1 + 1;
     }
 
-    // required bool ACK_bit = 8;
+    // required bool ACK_bit = 8 [default = false];
     if (has_ack_bit()) {
       total_size += 1 + 1;
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // required bool PSH_bit = 9;
+    // required bool PSH_bit = 9 [default = false];
     if (has_psh_bit()) {
       total_size += 1 + 1;
     }
 
-    // required bool RST_bit = 10;
+    // required bool RST_bit = 10 [default = false];
     if (has_rst_bit()) {
       total_size += 1 + 1;
     }
 
-    // required bool SYN_bit = 11;
+    // required bool SYN_bit = 11 [default = false];
     if (has_syn_bit()) {
       total_size += 1 + 1;
     }
 
-    // required bool FIN_bit = 12;
+    // required bool FIN_bit = 12 [default = false];
     if (has_fin_bit()) {
       total_size += 1 + 1;
     }
@@ -817,21 +818,21 @@ int TcpSegmentHeader::ByteSize() const {
           this->window_size());
     }
 
-    // required uint32 check_sum = 14;
+    // required uint32 check_sum = 14 [default = 0];
     if (has_check_sum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->check_sum());
     }
 
-    // required uint32 URG_pointer = 15;
+    // required uint32 URG_pointer = 15 [default = 0];
     if (has_urg_pointer()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->urg_pointer());
     }
 
-    // optional string Options = 16;
+    // optional string Options = 16 [default = ""];
     if (has_options()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(

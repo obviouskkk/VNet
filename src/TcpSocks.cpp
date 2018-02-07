@@ -48,10 +48,10 @@ int TcpSock::Accept()
 int TcpSock::Send(const std::string & data){
     TcpSegment::TcpSegment TcpSeg;
     TcpSeg.set_tcpdata(data);
-    TcpSegment::TcpSegmentHeader * tcp_header_ =TcpSeg. mutable_tcpheader();
+    TcpSegment::TcpSegmentHeader * tcp_header_ =TcpSeg.mutable_tcpheader();
     tcp_header_->set_source_port(mport_);
     tcp_header_->set_dest_port(remote_port_);
-    tcp_header_->set_offset(data.size() );
+    tcp_header_->set_offset(data.size());
 
     return 0;
 }

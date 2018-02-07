@@ -1,4 +1,4 @@
-PROJECT(VirtualNet)
+PROJECT(VNet)
 
 
 

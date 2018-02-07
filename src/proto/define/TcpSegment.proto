@@ -8,21 +8,21 @@ message TcpSegmentHeader{
     required uint32 ack_num     = 4; //4字节确认号ack
     // 以下为16bit
     required uint32 offset      = 5; //4bit 数据段相对报头的偏移=TCP报文头长度 
-    required uint32 keep_bits   = 6; //6bit 保留字段，
-    required bool URG_bit       = 7; //当URG=1时，表明紧急指针字段有效
-    required bool ACK_bit       = 8; //当ACK=1时确认号字段才有效
-    required bool PSH_bit       = 9; //尽快地交付给接收应用进程
+    required uint32 keep_bits   = 6 [default = 0]; //6bit 保留字段，
+    required bool URG_bit       = 7 [default = false]; //当URG=1时，表明紧急指针字段有效
+    required bool ACK_bit       = 8 [default = false]; //当ACK=1时确认号字段才有效
+    required bool PSH_bit       = 9 [default = false]; //尽快地交付给接收应用进程
                                      //不再等到整个缓存都填满了后再向上交付
-    required bool RST_bit       = 10; //当RST=1时，表明TCP连接中出现严重差错
+    required bool RST_bit       = 10 [default = false]; //当RST=1时，表明TCP连接中出现严重差错
                                       //必须释放连接，然后再重新建立运输连接
-    required bool SYN_bit       = 11; //SYN为1表示是一个连接请求或连接接受报文
-    required bool FIN_bit       = 12; //FIN=1表明发送端的数据已发送完毕，
+    required bool SYN_bit       = 11 [default = false]; //SYN为1表示是一个连接请求或连接接受报文
+    required bool FIN_bit       = 12 [default = false]; //FIN=1表明发送端的数据已发送完毕，
                                       //并要求释放运输连接
     //
     required uint32 window_size = 13; //2字节窗口大小
-    required uint32 check_sum   = 14; //2字节校验和
-    required uint32 URG_pointer = 15; //2字节紧急指针
-    optional string Options     = 16; //最多40字节的可选选项
+    required uint32 check_sum   = 14 [default = 0]; //2字节校验和
+    required uint32 URG_pointer = 15 [default = 0]; //2字节紧急指针
+    optional string Options     = 16 [default = ""]; //最多40字节的可选选项
 }
 
 

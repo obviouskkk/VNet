@@ -126,49 +126,49 @@ class TcpSegmentHeader : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 offset() const;
   inline void set_offset(::google::protobuf::uint32 value);
 
-  // required uint32 keep_bits = 6;
+  // required uint32 keep_bits = 6 [default = 0];
   inline bool has_keep_bits() const;
   inline void clear_keep_bits();
   static const int kKeepBitsFieldNumber = 6;
   inline ::google::protobuf::uint32 keep_bits() const;
   inline void set_keep_bits(::google::protobuf::uint32 value);
 
-  // required bool URG_bit = 7;
+  // required bool URG_bit = 7 [default = false];
   inline bool has_urg_bit() const;
   inline void clear_urg_bit();
   static const int kURGBitFieldNumber = 7;
   inline bool urg_bit() const;
   inline void set_urg_bit(bool value);
 
-  // required bool ACK_bit = 8;
+  // required bool ACK_bit = 8 [default = false];
   inline bool has_ack_bit() const;
   inline void clear_ack_bit();
   static const int kACKBitFieldNumber = 8;
   inline bool ack_bit() const;
   inline void set_ack_bit(bool value);
 
-  // required bool PSH_bit = 9;
+  // required bool PSH_bit = 9 [default = false];
   inline bool has_psh_bit() const;
   inline void clear_psh_bit();
   static const int kPSHBitFieldNumber = 9;
   inline bool psh_bit() const;
   inline void set_psh_bit(bool value);
 
-  // required bool RST_bit = 10;
+  // required bool RST_bit = 10 [default = false];
   inline bool has_rst_bit() const;
   inline void clear_rst_bit();
   static const int kRSTBitFieldNumber = 10;
   inline bool rst_bit() const;
   inline void set_rst_bit(bool value);
 
-  // required bool SYN_bit = 11;
+  // required bool SYN_bit = 11 [default = false];
   inline bool has_syn_bit() const;
   inline void clear_syn_bit();
   static const int kSYNBitFieldNumber = 11;
   inline bool syn_bit() const;
   inline void set_syn_bit(bool value);
 
-  // required bool FIN_bit = 12;
+  // required bool FIN_bit = 12 [default = false];
   inline bool has_fin_bit() const;
   inline void clear_fin_bit();
   static const int kFINBitFieldNumber = 12;
@@ -182,21 +182,21 @@ class TcpSegmentHeader : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 window_size() const;
   inline void set_window_size(::google::protobuf::uint32 value);
 
-  // required uint32 check_sum = 14;
+  // required uint32 check_sum = 14 [default = 0];
   inline bool has_check_sum() const;
   inline void clear_check_sum();
   static const int kCheckSumFieldNumber = 14;
   inline ::google::protobuf::uint32 check_sum() const;
   inline void set_check_sum(::google::protobuf::uint32 value);
 
-  // required uint32 URG_pointer = 15;
+  // required uint32 URG_pointer = 15 [default = 0];
   inline bool has_urg_pointer() const;
   inline void clear_urg_pointer();
   static const int kURGPointerFieldNumber = 15;
   inline ::google::protobuf::uint32 urg_pointer() const;
   inline void set_urg_pointer(::google::protobuf::uint32 value);
 
-  // optional string Options = 16;
+  // optional string Options = 16 [default = ""];
   inline bool has_options() const;
   inline void clear_options();
   static const int kOptionsFieldNumber = 16;
@@ -493,7 +493,7 @@ inline void TcpSegmentHeader::set_offset(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:TcpSegment.TcpSegmentHeader.offset)
 }
 
-// required uint32 keep_bits = 6;
+// required uint32 keep_bits = 6 [default = 0];
 inline bool TcpSegmentHeader::has_keep_bits() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -517,7 +517,7 @@ inline void TcpSegmentHeader::set_keep_bits(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:TcpSegment.TcpSegmentHeader.keep_bits)
 }
 
-// required bool URG_bit = 7;
+// required bool URG_bit = 7 [default = false];
 inline bool TcpSegmentHeader::has_urg_bit() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -541,7 +541,7 @@ inline void TcpSegmentHeader::set_urg_bit(bool value) {
   // @@protoc_insertion_point(field_set:TcpSegment.TcpSegmentHeader.URG_bit)
 }
 
-// required bool ACK_bit = 8;
+// required bool ACK_bit = 8 [default = false];
 inline bool TcpSegmentHeader::has_ack_bit() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -565,7 +565,7 @@ inline void TcpSegmentHeader::set_ack_bit(bool value) {
   // @@protoc_insertion_point(field_set:TcpSegment.TcpSegmentHeader.ACK_bit)
 }
 
-// required bool PSH_bit = 9;
+// required bool PSH_bit = 9 [default = false];
 inline bool TcpSegmentHeader::has_psh_bit() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -589,7 +589,7 @@ inline void TcpSegmentHeader::set_psh_bit(bool value) {
   // @@protoc_insertion_point(field_set:TcpSegment.TcpSegmentHeader.PSH_bit)
 }
 
-// required bool RST_bit = 10;
+// required bool RST_bit = 10 [default = false];
 inline bool TcpSegmentHeader::has_rst_bit() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -613,7 +613,7 @@ inline void TcpSegmentHeader::set_rst_bit(bool value) {
   // @@protoc_insertion_point(field_set:TcpSegment.TcpSegmentHeader.RST_bit)
 }
 
-// required bool SYN_bit = 11;
+// required bool SYN_bit = 11 [default = false];
 inline bool TcpSegmentHeader::has_syn_bit() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -637,7 +637,7 @@ inline void TcpSegmentHeader::set_syn_bit(bool value) {
   // @@protoc_insertion_point(field_set:TcpSegment.TcpSegmentHeader.SYN_bit)
 }
 
-// required bool FIN_bit = 12;
+// required bool FIN_bit = 12 [default = false];
 inline bool TcpSegmentHeader::has_fin_bit() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -685,7 +685,7 @@ inline void TcpSegmentHeader::set_window_size(::google::protobuf::uint32 value) 
   // @@protoc_insertion_point(field_set:TcpSegment.TcpSegmentHeader.window_size)
 }
 
-// required uint32 check_sum = 14;
+// required uint32 check_sum = 14 [default = 0];
 inline bool TcpSegmentHeader::has_check_sum() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -709,7 +709,7 @@ inline void TcpSegmentHeader::set_check_sum(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:TcpSegment.TcpSegmentHeader.check_sum)
 }
 
-// required uint32 URG_pointer = 15;
+// required uint32 URG_pointer = 15 [default = 0];
 inline bool TcpSegmentHeader::has_urg_pointer() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -733,7 +733,7 @@ inline void TcpSegmentHeader::set_urg_pointer(::google::protobuf::uint32 value) 
   // @@protoc_insertion_point(field_set:TcpSegment.TcpSegmentHeader.URG_pointer)
 }
 
-// optional string Options = 16;
+// optional string Options = 16 [default = ""];
 inline bool TcpSegmentHeader::has_options() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }

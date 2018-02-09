@@ -48,7 +48,7 @@ private:
     int first_handshake();    //client 
     int second_handshake();   //server
     int third_handshake();    //client
-    int send_data();
+    int send_data(const std::string & data);
     int send_ack();
 private:
     enum TcpStatus tcp_states_;

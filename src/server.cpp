@@ -7,7 +7,7 @@
 
  ********************************************************************** */
 
-#include "apue.h"
+#include "common.h"
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <stdint.h>

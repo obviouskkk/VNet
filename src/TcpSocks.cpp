@@ -45,13 +45,36 @@ int TcpSock::Accept()
     return -1;
 }
 
-int TcpSock::Send(const std::string & data){
+// 以下为公共
+int TcpSock::send_ack()
+{
+    TcpSegment::TcpSegment TcpSeg;
+    TcpSeg.set_tcpdata("");
+    TcpSegment::TcpSegmentHeader * tcp_header_ =TcpSeg.mutable_tcpheader();
+    tcp_header_->set_source_port(mport_);
+    tcp_header_->set_dest_port(remote_port_);
+    tcp_header_->set_offset(0);
+    tcp_header_->set_ack_bit(true);
+    return ipnet_->net_send();
+}
+
+int TcpSock::send_data(const std::string & data)
+{
     TcpSegment::TcpSegment TcpSeg;
     TcpSeg.set_tcpdata(data);
     TcpSegment::TcpSegmentHeader * tcp_header_ =TcpSeg.mutable_tcpheader();
     tcp_header_->set_source_port(mport_);
     tcp_header_->set_dest_port(remote_port_);
     tcp_header_->set_offset(data.size());
+    char buf[4096];
+    TcpSeg.SerializePartialToArray(buf, 4096);
+    return ipnet_->net_send();
+}
 
-    return 0;
+int TcpSock::Send(const std::string & data){
+    // TODO switch(TcpStatus)
+    if(tcp_states_ == ESTABLISHED)
+        return send_data(data);
+    else 
+        return 0;
 }

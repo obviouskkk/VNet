@@ -7,7 +7,7 @@
 
  ********************************************************************** */
 
-#include "../src/apue.h"
+#include "common.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <arpa/inet.h>

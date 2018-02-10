@@ -18,7 +18,8 @@ int TcpSock::first_handshake()
     return 0;
 }
 
-int TcpSock::Connect(){
+int TcpSock::Connect() 
+{
     if(tcp_states_ == CLOSED){
         first_handshake();
         return 0;
@@ -27,7 +28,7 @@ int TcpSock::Connect(){
 }
 
 //以下是server
-int TcpSock::Listen(){   
+int TcpSock::Listen() {   
     if(tcp_states_ == CLOSED)
         this->tcp_states_ = LISTEN;
     else
@@ -37,7 +38,7 @@ int TcpSock::Listen(){
 
 int TcpSock::Accept()
 {
-    if(tcp_states_ == LISTEN){
+    if (tcp_states_ == LISTEN) {
         second_handshake();
         tcp_states_ = SYN_RECIEVED;
         return 0;
@@ -71,9 +72,10 @@ int TcpSock::send_data(const std::string & data)
     return ipnet_->net_send();
 }
 
-int TcpSock::Send(const std::string & data){
+int TcpSock::Send(const std::string & data)
+{
     // TODO switch(TcpStatus)
-    if(tcp_states_ == ESTABLISHED)
+    if (tcp_states_ == ESTABLISHED)
         return send_data(data);
     else 
         return 0;

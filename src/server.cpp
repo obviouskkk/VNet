@@ -31,6 +31,7 @@ int main(int argc, const char* argv[])
     socklen_t servaddr_size = sizeof(servaddr);
     if (accept(sockfd, (struct sockaddr*)&servaddr, &servaddr_size) == -1)
         err_exit("accept error");
+
     return 0;
 }
 
